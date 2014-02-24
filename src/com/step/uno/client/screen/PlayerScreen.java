@@ -11,7 +11,7 @@ public class PlayerScreen extends JFrame implements PlayerView {
 
 
     private OpenCardPanel openCardPanel;
-    private ClosePilePanel closePilePanel;
+    private DrawCardsPanel drawCardsPanel;
     private OtherPlayersPanel otherPlayersPanel;
     private PlayerCardsPanel playerCardsPanel;
     private JPanel currentPlayer;
@@ -23,7 +23,7 @@ public class PlayerScreen extends JFrame implements PlayerView {
         this.setTitle((controller.getPlayerName()));
 
         openCardPanel = new OpenCardPanel(controller.getOpenCardColour(), snapshot.openCard.sign.toString());
-        closePilePanel = new ClosePilePanel(controller.isMyTurn(), controller.createClosePileController());
+        drawCardsPanel = new DrawCardsPanel(controller.isMyTurn(), controller.createClosePileController());
         otherPlayersPanel = new OtherPlayersPanel(snapshot.playerSummaries, snapshot.isInAscendingOrder,
                 controller.createOtherPlayerController());
 
@@ -34,7 +34,7 @@ public class PlayerScreen extends JFrame implements PlayerView {
         player.setFont(new Font("verdana", Font.BOLD, 25));
 
         openCardPanel.setBounds(500, 300, 250, 300);
-        closePilePanel.setBounds(300, 300, 250, 300);
+        drawCardsPanel.setBounds(300, 300, 250, 300);
         otherPlayersPanel.setBounds(100, 0, 800, 1800);
         playerCardsPanel.setBounds(0, 0, 900, 200);
 
@@ -46,7 +46,7 @@ public class PlayerScreen extends JFrame implements PlayerView {
 
         add(currentPlayer);
         add(openCardPanel);
-        add(closePilePanel, BorderLayout.CENTER);
+        add(drawCardsPanel, BorderLayout.CENTER);
         add(otherPlayersPanel);
         add(playerCardsPanel, BorderLayout.SOUTH);
         add(activityLogPanel, BorderLayout.EAST);
@@ -61,7 +61,7 @@ public class PlayerScreen extends JFrame implements PlayerView {
 
     @Override
     public void update(PlayerScreenController controller) {
-        closePilePanel.update(controller.isMyTurn());
+        drawCardsPanel.update(controller.isMyTurn());
         openCardPanel.setOpenCard(controller.getOpenCardColour(), controller.getOpenCardSign());
         otherPlayersPanel.update(controller.getPlayerSummaries(), controller.isInAscendingOrder());
         playerCardsPanel.update(controller.getPlayerCards());
