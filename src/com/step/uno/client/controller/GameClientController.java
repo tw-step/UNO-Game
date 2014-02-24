@@ -21,7 +21,7 @@ public class GameClientController implements MessageChannelListener {
 
     public GameClientController(UnoFactory factory) {
         this.factory = factory;
-        controller =factory.createScreenController();
+        controller = factory.createScreenController();
     }
 
     public void join(String serverAddress, String playerName) {
@@ -38,10 +38,9 @@ public class GameClientController implements MessageChannelListener {
     }
 
     private void handle(Snapshot snapshot) {
-        if (playerView == null){
+        if (playerView == null) {
             playerView = joinGameView.switchToPlayerView(controller, snapshot);
-        }
-        else playerView.update(controller);
+        } else playerView.update(controller);
     }
 
     private void handle(WaitingForDrawnCardAction waiting) {

@@ -5,7 +5,6 @@ import com.step.uno.model.Colour;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PlayerCardsPanel extends JPanel {

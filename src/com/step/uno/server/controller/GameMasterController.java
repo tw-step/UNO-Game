@@ -5,7 +5,10 @@ import com.step.communication.factory.UnoFactory;
 import com.step.communication.server.MessageServer;
 import com.step.communication.server.MessageServerListener;
 import com.step.uno.messages.GameResult;
-import com.step.uno.model.*;
+import com.step.uno.model.Card;
+import com.step.uno.model.Colour;
+import com.step.uno.model.Game;
+import com.step.uno.model.Player;
 
 import java.util.ArrayList;
 import java.util.List;

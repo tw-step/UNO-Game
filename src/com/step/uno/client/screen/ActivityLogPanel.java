@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class ActivityLogPanel extends JPanel {
 
-    private final JPanel logPanel =new JPanel();
+    private final JPanel logPanel = new JPanel();
     private JScrollPane scrollPane = new JScrollPane();
 
     public ActivityLogPanel() {
@@ -24,8 +24,8 @@ public class ActivityLogPanel extends JPanel {
 
     }
 
-    public void update(String player,String card) {
-        logPanel.add( new TextArea(player+" played "+card));
+    public void update(String player, String card) {
+        logPanel.add(new TextArea(player + " played " + card));
         logPanel.revalidate();
-   }
+    }
 }

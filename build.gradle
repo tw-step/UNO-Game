@@ -4,7 +4,7 @@ apply plugin: 'idea'
 
 group = "com.tw.uno"
 
-mainClassName="com.step.uno.client.UnoPlayer" // Change it to your main class
+mainClassName = "com.step.uno.client.UnoPlayer" // Change it to your main class
 
 repositories { mavenCentral() }
 
@@ -27,7 +27,7 @@ idea {
     }
 }
 distZip {
-    into(project.name + "/bin" ) {
+    into(project.name + "/bin") {
         from 'src/UnoMaster.bat'
         include '*'
     }

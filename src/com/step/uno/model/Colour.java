@@ -3,7 +3,7 @@ package com.step.uno.model;
 import java.awt.*;
 import java.io.Serializable;
 
-public enum Colour implements Serializable{
+public enum Colour implements Serializable {
     Red(new Color(254, 46, 46)),
     Green(new Color(1, 223, 58)),
     Blue(new Color(46, 204, 250)),

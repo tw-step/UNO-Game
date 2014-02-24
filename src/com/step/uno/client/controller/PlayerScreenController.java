@@ -3,7 +3,6 @@ package com.step.uno.client.controller;
 import com.step.uno.client.model.GameClient;
 import com.step.uno.messages.Snapshot;
 import com.step.uno.model.Card;
-import com.step.uno.model.Colour;
 import com.step.uno.model.PlayerSummary;
 
 import java.awt.*;
@@ -78,7 +77,7 @@ public class PlayerScreenController {
     private class PlayerCardsActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(e.getSource()=="uno"){
+            if (e.getSource() == "uno") {
                 gameClient.declareUno();
             }
         }

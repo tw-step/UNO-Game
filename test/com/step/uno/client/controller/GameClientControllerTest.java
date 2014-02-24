@@ -1,7 +1,6 @@
 package com.step.uno.client.controller;
 
 import com.step.uno.StubFactory;
-import com.step.uno.client.model.GameClient;
 import com.step.uno.client.view.JoinGameView;
 import com.step.uno.client.view.PlayerView;
 import com.step.uno.messages.Introduction;

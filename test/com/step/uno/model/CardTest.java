@@ -23,4 +23,5 @@ public class CardTest {
         }
         assertEquals(numberedCards.size(), 76);
     }
+
 }

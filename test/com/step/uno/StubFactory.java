@@ -11,7 +11,7 @@ import static org.mockito.Mockito.mock;
 public class StubFactory extends UnoFactory {
     public final MessageChannel channel = mock(MessageChannel.class);
     public final GameClient gameClient = new GameClient(channel);
-    private PlayerScreenController screenController =mock(PlayerScreenController.class);
+    private PlayerScreenController screenController = mock(PlayerScreenController.class);
 
     @Override
     public MessageChannel connectTo(String serverAddress, MessageChannelListener observer) {

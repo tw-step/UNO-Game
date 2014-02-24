@@ -5,7 +5,7 @@ import com.step.uno.messages.*;
 import com.step.uno.model.Card;
 import com.step.uno.model.Colour;
 
-public class GameClient  {
+public class GameClient {
 
     private MessageChannel channel;
 
@@ -22,28 +22,29 @@ public class GameClient  {
 //        channel.send(new PlayCardAction(card));
 //    }
 
-    public void play(Card card, Colour newColour){
+    public void play(Card card, Colour newColour) {
         //dont allow WildDraw4 when running colour is present
         //dont allow colour change to last card when heading to last card
-        channel.send(new PlayCardAction(card,newColour));
-     }
-    public void informNoActionOnDrawnCard(){
+        channel.send(new PlayCardAction(card, newColour));
+    }
+
+    public void informNoActionOnDrawnCard() {
         channel.send(new NoActionOnDrawnCard());
     }
 
-    public void draw(){
+    public void draw() {
         channel.send(new DrawCardAction());
     }
 
-    public void drawTwo(){
+    public void drawTwo() {
         channel.send(new DrawTwoCardAction());
     }
 
-    public void declareUno(){
+    public void declareUno() {
         channel.send(new DeclareUnoAction());
     }
 
-    public void catchUno(int playerIndex){
-        channel.send(new CatchUnoAction( playerIndex));
+    public void catchUno(int playerIndex) {
+        channel.send(new CatchUnoAction(playerIndex));
     }
 }

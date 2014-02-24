@@ -2,7 +2,6 @@ package com.step.uno.client.screen;
 
 import com.step.uno.client.controller.GameClientController;
 import com.step.uno.client.controller.PlayerScreenController;
-import com.step.uno.client.model.GameClient;
 import com.step.uno.client.view.JoinGameView;
 import com.step.uno.client.view.PlayerView;
 import com.step.uno.messages.Snapshot;

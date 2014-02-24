@@ -22,6 +22,7 @@ import static org.mockito.Mockito.*;
 class GameStub extends Game {
     boolean initializeCalled = false;
     boolean playCardCalled = false;
+
     public GameStub(int packs, List<Player> givenPlayers) {
         super(packs, givenPlayers);
     }
@@ -102,7 +103,7 @@ public class GameMasterControllerTest {
         controller.startGame();
         controller.onPlayerDrewCard(gabbar);
 
-        verify(mockedGame,times(1)).drawCard(gabbar);
+        verify(mockedGame, times(1)).drawCard(gabbar);
     }
 
     @Test
@@ -110,7 +111,7 @@ public class GameMasterControllerTest {
         controller.startGame();
         controller.onPlayerDeclaredUno(gabbar);
 
-        verify(mockedGame,times(1)).declareUno(gabbar);
+        verify(mockedGame, times(1)).declareUno(gabbar);
     }
 
     @Test
@@ -118,7 +119,7 @@ public class GameMasterControllerTest {
         controller.startGame();
         controller.onPlayerCaughtUno(gabbar, 2);
 
-        verify(mockedGame,times(1)).catchUno(gabbar, 2);
+        verify(mockedGame, times(1)).catchUno(gabbar, 2);
     }
 
     @Test
@@ -126,14 +127,15 @@ public class GameMasterControllerTest {
         controller.startGame();
         controller.onPlayerDrewCard(gabbar);
 
-        verify(mockedGame,times(1)).drawCard(gabbar);
+        verify(mockedGame, times(1)).drawCard(gabbar);
     }
+
     @Test
     public void sendsDrawTwoCardsRequestWhenRequired() {
         controller.startGame();
         controller.onPlayerDrewTwoCards(gabbar);
 
-        verify(mockedGame,times(1)).drawTwoCards(gabbar);
+        verify(mockedGame, times(1)).drawTwoCards(gabbar);
     }
 
     @Test
@@ -141,20 +143,20 @@ public class GameMasterControllerTest {
         controller.startGame();
         controller.onNoActionOnDrawnCard(gabbar);
 
-        verify(mockedGame,times(1)).moveForwardAsPlayerTookNoActionOnDrawnCard();
+        verify(mockedGame, times(1)).moveForwardAsPlayerTookNoActionOnDrawnCard();
     }
 
     @Test
-    public void rejectsConnectionsAfterAllPlayersJoin(){
+    public void rejectsConnectionsAfterAllPlayersJoin() {
         StubFactory stub = new StubFactory();
         MessageChannel channel = mock(MessageChannel.class);
         MessageChannel lateChannel = mock(MessageChannel.class);
-        GameMasterController controller = new GameMasterController(1,1,stub);
+        GameMasterController controller = new GameMasterController(1, 1, stub);
         controller.waitForConnections();
         controller.onNewConnection(channel);
         controller.onNewConnection(lateChannel);
-        verify(lateChannel,times(1)).stop();
-        verify(lateChannel,never()).send(any(Snapshot.class));
+        verify(lateChannel, times(1)).stop();
+        verify(lateChannel, never()).send(any(Snapshot.class));
     }
 
     class StubFactory extends UnoFactory {

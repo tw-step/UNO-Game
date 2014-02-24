@@ -22,16 +22,16 @@ public class PlayerScreen extends JFrame implements PlayerView {
 
         this.setTitle((controller.getPlayerName()));
 
-        openCardPanel = new OpenCardPanel(controller.getOpenCardColour(),snapshot.openCard.sign.toString());
-        closePilePanel = new ClosePilePanel(controller.isMyTurn(),controller.createClosePileController());
-        otherPlayersPanel = new OtherPlayersPanel(snapshot.playerSummaries,snapshot.isInAscendingOrder,
+        openCardPanel = new OpenCardPanel(controller.getOpenCardColour(), snapshot.openCard.sign.toString());
+        closePilePanel = new ClosePilePanel(controller.isMyTurn(), controller.createClosePileController());
+        otherPlayersPanel = new OtherPlayersPanel(snapshot.playerSummaries, snapshot.isInAscendingOrder,
                 controller.createOtherPlayerController());
 
-        playerCardsPanel = new PlayerCardsPanel(controller.isMyTurn(), snapshot.myCards,controller.createPlayerCardsController());
-        activityLogPanel =new ActivityLogPanel();
+        playerCardsPanel = new PlayerCardsPanel(controller.isMyTurn(), snapshot.myCards, controller.createPlayerCardsController());
+        activityLogPanel = new ActivityLogPanel();
         currentPlayer = new JPanel();
-        player = new JLabel(snapshot.playerSummaries[snapshot.currentPlayerIndex].name+"\'s turn");
-        player.setFont(new Font("verdana",Font.BOLD,25));
+        player = new JLabel(snapshot.playerSummaries[snapshot.currentPlayerIndex].name + "\'s turn");
+        player.setFont(new Font("verdana", Font.BOLD, 25));
 
         openCardPanel.setBounds(500, 300, 250, 300);
         closePilePanel.setBounds(300, 300, 250, 300);
@@ -39,17 +39,17 @@ public class PlayerScreen extends JFrame implements PlayerView {
         playerCardsPanel.setBounds(0, 0, 900, 200);
 
         setLayout(new BorderLayout());
-        currentPlayer.setBounds(450,200,200,50);
+        currentPlayer.setBounds(450, 200, 200, 50);
         currentPlayer.add(player);
         currentPlayer.setPreferredSize(new Dimension(400, 200));
         currentPlayer.setVisible(true);
 
         add(currentPlayer);
         add(openCardPanel);
-        add(closePilePanel,BorderLayout.CENTER);
+        add(closePilePanel, BorderLayout.CENTER);
         add(otherPlayersPanel);
-        add(playerCardsPanel,BorderLayout.SOUTH);
-        add(activityLogPanel,BorderLayout.EAST);
+        add(playerCardsPanel, BorderLayout.SOUTH);
+        add(activityLogPanel, BorderLayout.EAST);
         setVisible(true);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
@@ -62,10 +62,10 @@ public class PlayerScreen extends JFrame implements PlayerView {
     @Override
     public void update(PlayerScreenController controller) {
         closePilePanel.update(controller.isMyTurn());
-        openCardPanel.setOpenCard(controller.getOpenCardColour(),controller.getOpenCardSign());
-        otherPlayersPanel.update(controller.getPlayerSummaries(),controller.isInAscendingOrder());
+        openCardPanel.setOpenCard(controller.getOpenCardColour(), controller.getOpenCardSign());
+        otherPlayersPanel.update(controller.getPlayerSummaries(), controller.isInAscendingOrder());
         playerCardsPanel.update(controller.getPlayerCards());
-        player.setText(controller.getPlayerName()+"\'s turn");
+        player.setText(controller.getPlayerName() + "\'s turn");
 
     }
-   }
+}
