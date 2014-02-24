@@ -71,4 +71,13 @@ public class CardTest {
         assertEquals(wildCards.size(), 4);
     }
 
+    @Test
+    public void toStringGivesTheColorAndSignOfACard() {
+        Card card = new Card();
+        card.sign = Sign._0;
+        card.colour = Colour.Red;
+        String colorAndSign = card.toString();
+        assertEquals(colorAndSign,"Red 0");
+    }
+
 }
