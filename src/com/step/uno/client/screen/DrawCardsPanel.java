@@ -4,10 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class ClosePilePanel extends JPanel {
+public class DrawCardsPanel extends JPanel {
     private JButton draw;
 
-    public ClosePilePanel(boolean isMyTurn, ActionListener ClosePileController) {
+    public DrawCardsPanel(boolean isMyTurn, ActionListener ClosePileController) {
         draw = new JButton("Draw Cards");
         draw.setPreferredSize(new Dimension(100, 150));
         draw.setEnabled(isMyTurn);
