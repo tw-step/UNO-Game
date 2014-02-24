@@ -25,13 +25,13 @@ public class CardTest {
                 numberedCards.add(card);
             if (card.sign.name().equals("Reverse"))
                 reverseCards.add(card);
-            if(card.sign.name().equals("Skip"))
+            if (card.sign.name().equals("Skip"))
                 skipCards.add(card);
-            if(card.sign.name().equals("DrawTwo"))
+            if (card.sign.name().equals("DrawTwo"))
                 drawTwoCards.add(card);
-            if(card.sign.name().equals("Wild"))
+            if (card.sign.name().equals("Wild"))
                 wildCards.add(card);
-            if(card.sign.name().equals("WildDrawFour"))
+            if (card.sign.name().equals("WildDrawFour"))
                 drawFourCards.add(card);
         }
     }
@@ -77,7 +77,7 @@ public class CardTest {
         card.sign = Sign._0;
         card.colour = Colour.Red;
         String colorAndSign = card.toString();
-        assertEquals(colorAndSign,"Red 0");
+        assertEquals(colorAndSign, "Red 0");
     }
 
 }
